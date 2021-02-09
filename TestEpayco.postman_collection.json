@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "38a7fbfd-c4d4-4b7b-b8f9-c04ce9738269",
+		"name": "TestEpayco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "Listar Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://local-epayco/restuser",
+							"protocol": "http",
+							"host": [
+								"local-epayco"
+							],
+							"path": [
+								"restuser"
+							]
+						},
+						"description": "Listar los Clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"document\": \"{{$randomBankAccount}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"phone\": \"{{$randomPhoneNumber}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://local-epayco/restuser/create",
+							"protocol": "http",
+							"host": [
+								"local-epayco"
+							],
+							"path": [
+								"restuser",
+								"create"
+							]
+						},
+						"description": "Nuevo cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"document\": \"{{$randomBankAccount}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"phone\": \"{{$randomPhoneNumber}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://local-epayco/restuser/1",
+							"protocol": "http",
+							"host": [
+								"local-epayco"
+							],
+							"path": [
+								"restuser",
+								"1"
+							]
+						},
+						"description": "Nuevo cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://local-epayco/restuser/2",
+							"protocol": "http",
+							"host": [
+								"local-epayco"
+							],
+							"path": [
+								"restuser",
+								"2"
+							]
+						},
+						"description": "Listar los Clientes"
+					},
+					"response": []
+				}
+			],
+			"description": "gestión de crud del cliente"
+		},
+		{
+			"name": "transation",
+			"item": [
+				{
+					"name": "Recargar Saldo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"document\": \"22029310\",\n    \"phone\": \"+584142324823\",\n    \"quantity\": \"{{$randomPrice}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://local-epayco/resttransaction/rechargeBalance",
+							"protocol": "http",
+							"host": [
+								"local-epayco"
+							],
+							"path": [
+								"resttransaction",
+								"rechargeBalance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Saldo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"document\": \"22029310\",\n    \"phone\": \"+584142324823\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://local-epayco/resttransaction/consultBalance",
+							"protocol": "http",
+							"host": [
+								"local-epayco"
+							],
+							"path": [
+								"resttransaction",
+								"consultBalance"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Registro de transacciones de usuario bien sea de ingreso o egreso"
+		},
+		{
+			"name": "payment",
+			"item": [
+				{
+					"name": "Generar Pago",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"document\": \"22029310\",\n    \"phone\": \"+584142324823\",\n    \"quantity\": \"{{$randomPrice}}\",\n    \"code\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://local-epayco/restpayment/pay",
+							"protocol": "http",
+							"host": [
+								"local-epayco"
+							],
+							"path": [
+								"restpayment",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
